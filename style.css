@@ -1,0 +1,62 @@
+/* style.css */
+.stTabs [data-baseweb="tab"] {
+    color: grey;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.stTabs [data-baseweb="tab"]:nth-child(1)[aria-selected="true"], 
+.stTabs [data-baseweb="tab"]:nth-child(2)[aria-selected="true"],
+.stTabs [data-baseweb="tab"]:nth-child(3)[aria-selected="true"],
+.stTabs [data-baseweb="tab"]:nth-child(4)[aria-selected="true"],
+.stTabs [data-baseweb="tab"]:nth-child(5)[aria-selected="true"],
+.stTabs [data-baseweb="tab"]:nth-child(6)[aria-selected="true"] {
+    background-color: #9ecae1;
+    color: white;
+    border-bottom: none; 
+    padding-left: 1%;
+    padding-right: 1%;
+    font-size: 24px;
+}
+
+.block-container {
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+
+}
+.stTabs [data-baseweb="tab-highlight"] {
+    background-color:#9ecae1;
+}
+
+.header {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    background-color: lightgrey;
+    color: #595959;
+}
+.header-compliance {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    background-color: lightgrey;
+    color: #595959;
+}
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+.table {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 5px;
+    width: 100%;
+}
