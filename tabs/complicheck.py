@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from langchain.load import dumps, loads
 import re
 import pandas as pd
+from pathlib import Path
 
 load_dotenv()
 
@@ -39,6 +40,7 @@ from langchain.schema import Document
 bedrock=boto3.client(service_name="bedrock-runtime")
 bedrock_embeddings=BedrockEmbeddings(model_id="amazon.titan-embed-text-v2:0",client=bedrock)
 
+file_path = Path(__file__).parents[1]
 
 def get_unique_union(documents: list[list]):
     """ Unique union of retrieved docs """
@@ -90,7 +92,7 @@ def data_ingestion(file_name):
     returns:
         docs - Document output per chunk of the pdf files
     '''
-    loader=PyPDFLoader(f'guidelines\\{file_name}')
+    loader=PyPDFLoader(file_path /"guidelines" / file_name)
     documents=loader.load()
 
     # - in our testing Character split works better with this PDF data set
@@ -112,7 +114,7 @@ def save_vector_store(docs, inp):
         docs,
         bedrock_embeddings
     )
-    vectorstore_faiss.save_local(f"VectorDB\\faiss_index_{inp}")
+    vectorstore_faiss.save_local(file_path/"VectorDB"/f"faiss_index_{inp}")
 
 def get_response_llm(llm,vectorstore_faiss,query, PROMPT):
     qa = RetrievalQA.from_chain_type(
@@ -265,7 +267,7 @@ def display():
     )
 
     filenames = {
-        'EBA' : 'EBA_Guidelines_ICT_Risk_Management.pdf',
+        'EBA' : 'Final draft Guidelines on ICT and security risk management.pdf',
         'Fraud' : 'Bank_Payment_Fraud_Awareness_Guide.pdf',
         'Cyber Security' : 'Bank_Designing_For_CyberSecurity.pdf',
         'Anti-Bribery' : 'Bank_Designing_For_CyberSecurity.pdf',
@@ -273,14 +275,15 @@ def display():
 
     if option == "EBA"  and user_question is not None:
         try: 
-            with st.spinner("Processing... uploaded to vector Database"):       
-                faiss_index = FAISS.load_local(f"VectorDB\\faiss_index_{option.replace(' ','')}", bedrock_embeddings, allow_dangerous_deserialization=True)
+            with st.spinner("Processing... uploaded to vector Database"):  
+                f"faiss_index_{inp}"     
+                faiss_index = FAISS.load_local(file_path/"VectorDB"/f"faiss_index_{option.replace(' ','')}", bedrock_embeddings, allow_dangerous_deserialization=True)
         except:
             with st.spinner("Creating Vector DB..."):
                 docs = data_ingestion(filenames[option])
                 save_vector_store(docs, option.replace(' ',''))
                 st.success("Done")
-                faiss_index = FAISS.load_local(f"VectorDB\\faiss_index_{option.replace(' ','')}", bedrock_embeddings, allow_dangerous_deserialization=True)
+                faiss_index = FAISS.load_local(file_path/"VectorDB"/f"faiss_index_{option.replace(' ','')}", bedrock_embeddings, allow_dangerous_deserialization=True)
                 st.success("Updated FAISS Index Populated") 
         
         llm=get_claude_llm() 
