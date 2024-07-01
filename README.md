@@ -69,3 +69,6 @@ To launch the application:
 2. Your default web browser will open, showcasing the application interface.
 
 3. Follow the on-screen instructions to load your data and start using conformant.
+
+### **4. Tech Stack**
+![Tech Stack](tech_stack.png)
