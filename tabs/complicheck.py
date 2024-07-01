@@ -275,8 +275,7 @@ def display():
 
     if option == "EBA"  and user_question is not None:
         try: 
-            with st.spinner("Processing... uploaded to vector Database"):  
-                f"faiss_index_{inp}"     
+            with st.spinner("Processing..."):  
                 faiss_index = FAISS.load_local(file_path/"VectorDB"/f"faiss_index_{option.replace(' ','')}", bedrock_embeddings, allow_dangerous_deserialization=True)
         except:
             with st.spinner("Creating Vector DB..."):

@@ -33,10 +33,11 @@ with open('style.css') as f:
 # Page Title
 st.image("title_image.PNG", use_column_width=True)
 st.markdown(
-    """ 
+    """
     <style>
     img{
     width: 30% !important;
+    padding-top:15px;
     }
     </style> 
 """, 
