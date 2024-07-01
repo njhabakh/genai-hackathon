@@ -1,4 +1,4 @@
-# ** Compliance Application - CONFORMANT 🦜** 
+# **Compliance Application** 
 
 This project creates an application that uses [RAG (Retrieval-Augmented Generation)](https://aws.amazon.com/what-is/retrieval-augmented-generation/) for document contextualization. The application has the following features:
 - CompliCheck : Analyze and ensure all requirements and guidelines are met be it regulatory, audit or compliance
@@ -69,5 +69,3 @@ To launch the application:
 2. Your default web browser will open, showcasing the application interface.
 
 3. Follow the on-screen instructions to load your data and start using conformant.
-
-### **4. Tech Stack**
