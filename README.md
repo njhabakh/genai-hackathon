@@ -16,6 +16,9 @@ This project creates an application that uses [RAG (Retrieval-Augmented Generati
 - **AWS Services**: Harness the power of Amazon's cloud services.
     - **Amazon Bedrock**: A fully managed service that offers a choice of high-performing foundation models (FMs) from leading AI companies like AI21 Labs, Anthropic, Cohere, Meta, Stability AI, and Amazon with a single API, along with a broad set of capabilities you need to build generative AI applications, simplifying development while maintaining privacy and security
 
+## **Process Flow**
+![Tech Stack](tech_stack.png)
+
 ## **Getting Started** 
 
 ### **1. Pre-requisites** 
@@ -69,6 +72,3 @@ To launch the application:
 2. Your default web browser will open, showcasing the application interface.
 
 3. Follow the on-screen instructions to load your data and start using conformant.
-
-### **4. Tech Stack**
-![Tech Stack](tech_stack.png)
