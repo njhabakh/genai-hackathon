@@ -20,9 +20,9 @@ This project creates an application that uses [RAG (Retrieval-Augmented Generati
 
 ### **1. Pre-requisites** 
 1. Have the following software on your system:
-    [git](https://git-scm.com/download)
-    [IDE](https://code.visualstudio.com/download)
-    [python](https://www.python.org/downloads/)
+    - [git](https://git-scm.com/download)
+    - [IDE](https://code.visualstudio.com/download)
+    - [python](https://www.python.org/downloads/)
 
 2. Clone the repository to your local machine (preferably inside a git or code folder).
     ```bash
